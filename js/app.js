@@ -1,4 +1,3 @@
-// Minimal dummy JS
 (function () {
   const btn = document.getElementById('demoBtn');
   const year = document.getElementById('year');
