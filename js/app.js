@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 // oslo børs
 // oppretelse av spillarvariabel 
 var Player = {
   navn: "Bjarte Emil Alsaker",
   saldo: 15000,
 }
+=======
+(function () {
+  const btn = document.getElementById('demoBtn');
+  const year = document.getElementById('year');
+>>>>>>> ec5f7b814a4559d514ad7d3197e0c02e90eea8c9
 
 // spel variabel
 var Game = {
