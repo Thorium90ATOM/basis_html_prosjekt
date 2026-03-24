@@ -1,6 +1,184 @@
-
 :root {
-  --brand: #730101; 
-  background: linear-gradient(90deg, rgb(0, 0, 0) 55%, var(--brand) 80%);
-  color: whitesmoke;
- }
+    --brand: #730101;
+    --dark-bg: #000;
+    --panel-bg: rgba(0,0,0,0.4);
+    --border-color: rgba(255,255,255,0.2);
+    --highlight: #ff4444;
+    --green: #00ff6a;
+    --red: #ff3c3c;
+    --button-hover-scale: 1.08;
+}
+
+@font-face {
+  font-family: "C64"; /* Choose a name for your font */
+  src: url("Font.otf") format("opentype"); /* Specify the path and format */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Optional: controls how the font loads */
+}
+
+body {
+    background: linear-gradient(90deg, var(--dark-bg) 55%, var(--brand) 80%);
+    color: white;
+    font-family: "C64";
+    margin: 0;
+    padding: 20px;
+  font-size: xx-small;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.topbar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+}
+
+.market {
+    width: 650px;
+}
+
+#stockList {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.stockRow {
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-radius: 6px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.stockRow:hover {
+    background: rgba(255,255,255,0.05);
+    transform: translateX(3px);
+}
+
+.green { color: var(--green); }
+.red { color: var(--red); }
+
+.sidepanel {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.portfolioBox, .newsBox, .leaderboardBox {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--panel-bg);
+}
+
+button {
+    font-family: "C64";
+    font-size: xx-small;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-weight: bold;
+    transition: transform 0.1s, background 0.2s;
+}
+
+button:hover { transform: scale(var(--button-hover-scale)); filter: brightness(1.2); }
+button:active { transform: scale(0.95); }
+
+.buyBtn { background: var(--green); color: black; }
+.sellBtn { background: var(--red); color: black; }
+
+#newDay { background: blue; color: white; }
+
+#takeLoan, #repayLoan { font-size: 0.9em; margin-left: 5px; }
+
+.vippsran-popup {
+    font-family: "C64";
+    font-size: xx-small;
+    user-select: none;
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.vippsran-popup h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.vippsran-popup p {
+    user-select: none;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    max-width: 90vw;
+}
+
+.vippsran-popup img {
+    user-select: none;
+    max-width: 80vw;
+    max-height: 50vh;
+    object-fit: contain;
+    margin-bottom: 20px; /* space below image */
+    border: 4px solid white;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #ff4444;
+}
+
+.vippsran-popup button {
+    font-family: "C64";
+    font-size: xx-small;
+    font-size: 1.6rem;
+    padding: 14px 36px;
+    background-color: #ff3333;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /* Make sure button is below the image */
+    margin-top: 10px;
+}
+
+.vippsran-popup button:hover {
+    background-color: #cc0000;
+}
+
+.vippsran-popup button:active {
+    transform: scale(0.95);
+}
